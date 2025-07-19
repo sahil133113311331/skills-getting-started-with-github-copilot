@@ -18,6 +18,23 @@
         <div id="activities-list">
           <!-- Activities will be loaded here -->
           <p>Loading activities...</p>
+          {{#each activities}}
+          <div class="activity-card" id="activity-{{name}}">
+              <h2>{{name}}</h2>
+              <p><strong>Description:</strong> {{description}}</p>
+              <p><strong>Schedule:</strong> {{schedule}}</p>
+              <p><strong>Max Participants:</strong> {{max_participants}}</p>
+              <div class="participants-section">
+                  <strong>Participants:</strong>
+                  <ul class="participants-list">
+                      {{#each participants}}
+                          <li>{{this}}</li>
+                      {{/each}}
+                  </ul>
+              </div>
+              <button onclick="signup('{{name}}')">Sign Up</button>
+          </div>
+          {{/each}}
         </div>
       </section>
 
